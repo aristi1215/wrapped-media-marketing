@@ -152,7 +152,7 @@ export function ClientsPage() {
             </div>
 
             <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-sm">
-              <span className="text-slate-500">{client.campaign_count} campaigns</span>
+              <span className="text-slate-500">{client.campaign_count} {client.campaign_count === 1 ? 'campaign' : 'campaigns'}</span>
               <span className="font-semibold text-slate-900">{formatCurrency(client.total_budget)}</span>
             </div>
             {client.last_campaign_date && (
