@@ -1,0 +1,21 @@
+{
+  "name": "marketing-management",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aristi1215/wrapped-media-marketing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aristi1215/wrapped-media-marketing/issues"
+  },
+  "homepage": "https://github.com/aristi1215/wrapped-media-marketing#readme"
+}
