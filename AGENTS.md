@@ -4,24 +4,43 @@
 
 ### Repository state
 
-This repository is currently a bare npm scaffold. The only tracked source file is
-`package.json` (CommonJS, `"type": "commonjs"`). There is **no application code,
-no dependencies, no tests, and no lint configuration** yet:
+This is a full-stack **React + Vite + TypeScript + Supabase** Campaign Admin Dashboard for Wrapped Media.
 
-- `package.json` declares `"main": "index.js"`, but `index.js` does not exist.
-- The `test` script is the npm default placeholder (`echo "Error: no test specified" && exit 1`), so `npm test` exits non-zero by design.
-- There is no build, dev, lint, or start script.
+**Tech Stack:**
+- Frontend: React 18 + Vite + TypeScript
+- Styling: Tailwind CSS + custom component system
+- Routing: React Router v7
+- State: TanStack Query (React Query)
+- Backend: Supabase (PostgreSQL + Auth + Realtime)
+- Maps: Mapbox GL JS via react-map-gl
+- Charts: Recharts
+- PDF: jsPDF + jspdf-autotable
+- Forms: React Hook Form + Zod
+
+**Application modules:**
+- `/dashboard` — Stats overview, charts
+- `/campaigns` — Campaign CRUD, driver assignment, report generation
+- `/drivers` — Driver pool management, approval workflow
+- `/map` — Live GPS map + heatmap (requires Mapbox token)
+- `/clients` — CRM-lite client management
+- `/payroll` — Driver payout calculator, CSV export
+
+**Supabase project:** `lqkuzzqtjzuyldityxxw` (wrapped-media-marketing, us-west-2)
 
 ### Environment
 
-- Runtime: Node.js (v22.x) with npm. No version is pinned in the repo (no `.nvmrc`/`engines`), so the VM default Node 22 is used.
-- Setup: `npm install` (installs zero dependencies today, but generates/refreshes `package-lock.json`). This is handled by the startup update script.
+- Runtime: Node.js (v22.x) with npm
+- Setup: `npm install`
+- **Required env vars:** `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_MAPBOX_TOKEN`
+- Env file `.env` is present with Supabase credentials configured
 
 ### Running / testing / building
 
-There is nothing to run, test, build, or lint until application code is added.
-Once code exists, add the corresponding scripts to `package.json` (e.g. `start`,
-`dev`, `lint`, `test`) and update this section. Until then:
+- `npm run dev` — start Vite dev server (localhost:5173)
+- `npm run build` — TypeScript check + Vite production build
+- `npm run preview` — preview production build
+- **Demo credentials:** email `admin@wrappedmedia.ca`, password `Admin1234!`
 
-- `npm install` — install deps (no-op beyond lockfile today).
-- `node <file>.js` — run a script directly once one exists.
+### Cursor Cloud specific testing instructions
+
+For UI testing, use the `computerUse` subagent to open Chrome at `http://localhost:5173` after running `npm run dev`. The Mapbox map requires a valid `VITE_MAPBOX_TOKEN` to render; without it, the map page shows a fallback with GPS stats.
